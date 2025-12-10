@@ -13,7 +13,7 @@ void swap_nodes(listin_t **list, listin_t *a, listin_t *b)
 		a->prev->next = b;
 	else
 		*list = b;
-	
+
 	if (b->next)
 		b->next->prev = a;
 	
@@ -31,9 +31,9 @@ void swap_nodes(listin_t **list, listin_t *a, listin_t *b)
 *
 *
 */
-void insertion_sort_list(listin_t **list)
+void insertion_sort_list(listint_t **list)
 {
-	listin_t *current, *insert;
+	listint_t *current, *insert;
 
 	if (!list || !*list || !(*list)->next)
 		return(0);
