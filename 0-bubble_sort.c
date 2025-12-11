@@ -16,7 +16,7 @@ for (j = 0; j < (size - 1); j++)
 {
 i = 0;
 flag = 0;
-for (i = 0; i < size - 1; i++)
+for (i = 0; i < size - j - 1; i++)
 {
 if (array[i] > array[i + 1])
 {
