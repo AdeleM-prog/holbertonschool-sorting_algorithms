@@ -15,7 +15,7 @@ typedef struct listint_s
 	const int n;
 	struct listint_s *prev;
 	struct listint_s *next;
-}listint_t;
+} listint_t;
 
 /*
 *==========================================================
@@ -40,7 +40,7 @@ void quick_sort(int *array, size_t size);
 
 /*
 *==========================================================
-* HELPERS FOR QUICK SORT 
+* HELPERS FOR QUICK SORT
 *(MUST BE DEFINR IN 3-QUICK_SORT.C)
 *==========================================================
 */
