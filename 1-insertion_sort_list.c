@@ -1,45 +1,40 @@
 #include "sort.h"
 
 /**
-* insertion_sort_list - Sorts a doubly linked list using insertion sort.
-* @list: Double pointer to the head of the list.
-*
-* Description: Prints the list after every swap.
-*/
+ * insertion_sort_list - Sorts a doubly linked list of integers in ascending order
+ * using the Insertion sort algorithm.
+ *
+ * @list: The doubly linked list to be sorted.
+ */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current;
-	listint_t *insert;
-	listint_t *prev;
+    listint_t *current, *insert, *temp;
 
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
-		return;
+    if (!list || !(*list) || !(*list)->next)
+        return;
 
-	current = (*list)->next;
-	while (current != NULL)
-	{
-		insert = current;
-		current = current->next;
+    current = (*list)->next;
+    while (current)
+    {
+        insert = current;
+        while (insert->prev && insert->n < insert->prev->n)
+        {
+            temp = insert->prev;
+            if (temp->prev)
+                temp->prev->next = insert;
+            else
+                *list = insert;
 
-		while (insert->prev != NULL && insert->n < insert->prev->n)
-		{
-			prev = insert->prev;
+            insert->prev = temp->prev;
+            temp->next = insert->next;
+            if (insert->next)
+                insert->next->prev = temp;
+            insert->next = temp;
+            temp->prev = insert;
 
-			prev->next = insert->next;
-			if (insert->next != NULL)
-				insert->next->prev = prev;
-
-			insert->next = prev;
-			insert->prev = prev->prev;
-
-			if (prev->prev != NULL)
-				prev->prev->next = insert;
-			else
-				*list = insert;
-
-			prev->prev = insert;
-
-			print_list(*list);
-		}
-	}
+            print_list(*list);
+        }
+        current = current->next;
+    }
 }
+ 
