@@ -24,8 +24,8 @@ print_array(array, size);
 }
 }
 tmp = array[i + 1];
-array[i + 1] = array[end - 1];
-array[end - 1] = tmp;
+array[i + 1] = array[end];
+array[end] = tmp;
 print_array(array, size);
 
 return (i + 1);
